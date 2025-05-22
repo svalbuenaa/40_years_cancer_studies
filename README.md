@@ -21,5 +21,5 @@ export PATH=${HOME}/edirect:${PATH}
 There is a variety of queries allowed by the Entrez Direct app. Once the app is installed, you can navigate to your project's directory and use the following query in your terminal to retrieve the identification numbers (i.e. **PMID numbers**) of the cancer studies published in the period of interest (in this case, July 1984 to July 2024):  
  
 ```
-esearch -db pubmed -query "cancer" | efilter -mindate 1984/07/01 -maxdate 2024/07/01 | efetch -format uid > cancer_from_1984_to_2024.txt  
+esearch -db pubmed -query "cancer" | efilter -mindate 1984/07/01 -maxdate 2024/06/30 | efetch -format uid > cancer_from_1984_to_2024.txt  
 ```    
