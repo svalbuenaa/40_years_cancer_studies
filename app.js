@@ -8,7 +8,7 @@ const url = "https://public.tableau.com/views/PRA2Visualization-SergioValbuena-4
 const vizContainer = document.getElementById('vizContainer');
 const options = {
     hideTabs: true,
-    width: window.innerWidth*0.8,
+    width: window.innerWidth,
     height: window.innerHeight,
     onFirstInteraction: function() {
         workbook = viz.getWorkbook();
