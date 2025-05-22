@@ -1,26 +1,44 @@
 <html>
 <head>
-
     <title>Trial</title>
 
+    <!-- Tableau JS API -->
     <script type="text/javascript"
 	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    <script type="text/javascript"></script>
 
+    <!-- Responsive Styling -->
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #vizContainer {
+            width: 100%;
+            height: calc(100vh - 60px); /* Leaves space for header and buttons */
+        }
+
+        h1 {
+            margin: 10px;
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-  <h1>Subtitle trial</h1>
+    <h1>Subtitle trial</h1>
 
-    <button id = "exportPDF">Generate PDF</button>
-    <button id = "exportImage">Generate Image</button>
-
+    <button id="exportPDF">Generate PDF</button>
+    <button id="exportImage">Generate Image</button>
 
     <div id="vizContainer"></div>
 
     <script src="./app.js"></script>
 
 </body>
-
 </html>
