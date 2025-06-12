@@ -208,6 +208,7 @@ dependencies:
       - en-core-web-lg==3.8.0
       - es-core-news-lg==3.8.0
       - fr-core-news-lg==3.8.0
+      - googlemaps==4.10.0
       - it-core-news-lg==3.8.0
       - ja-core-news-lg==3.8.0
       - langcodes==3.5.0
