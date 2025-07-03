@@ -19,7 +19,7 @@ dependencies:
   - bs4=4.12.3=py39hd3eb1b0_0
   - bzip2=1.0.8=h2bbff1b_6
   - ca-certificates=2025.2.25=haa95532_0
-  - certifi=2025.4.26=py313haa95532_0
+  - certifi=2025.6.15=py313haa95532_0
   - cffi=1.17.1=py313h827c3e9_1
   - charset-normalizer=3.3.2=pyhd3eb1b0_0
   - colorama=0.4.6=py313haa95532_0
@@ -28,7 +28,9 @@ dependencies:
   - conda-libmamba-solver=25.4.0=pyhd3eb1b0_0
   - conda-package-handling=2.4.0=py313haa95532_0
   - conda-package-streaming=0.11.0=py313haa95532_0
+  - contourpy=1.3.1=py313h214f63a_0
   - cpp-expected=1.1.0=h214f63a_0
+  - cycler=0.11.0=pyhd3eb1b0_0
   - debugpy=1.8.11=py313h5da7b33_0
   - decorator=5.1.1=pyhd3eb1b0_0
   - defusedxml=0.7.1=pyhd3eb1b0_0
@@ -36,6 +38,9 @@ dependencies:
   - executing=0.8.3=pyhd3eb1b0_0
   - expat=2.7.1=h8ddb27b_0
   - fmt=9.1.0=h6d14046_1
+  - fonttools=4.55.3=py313h827c3e9_0
+  - freeglut=3.4.0=h8a1e904_1
+  - freetype=2.13.3=h0620614_0
   - frozendict=2.4.2=py313haa95532_0
   - h11=0.14.0=py313haa95532_0
   - httpcore=1.0.2=py313haa95532_0
@@ -67,9 +72,13 @@ dependencies:
   - jupyterlab_pygments=0.3.0=py313haa95532_0
   - jupyterlab_server=2.27.3=py313haa95532_0
   - jupyterlab_widgets=3.0.13=py313haa95532_0
+  - kiwisolver=1.4.8=py313h5da7b33_0
   - krb5=1.20.1=h5b6d351_0
+  - lcms2=2.16=h62be587_1
+  - lerc=4.0.0=h5da7b33_0
   - libarchive=3.7.7=h9243413_0
   - libcurl=8.12.1=h9da9810_0
+  - libdeflate=1.22=h5bf469e_0
   - libffi=3.4.4=hd77b12b_1
   - libiconv=1.16=h2bbff1b_3
   - libmamba=2.0.5=hcd6fe79_1
@@ -80,11 +89,15 @@ dependencies:
   - libsodium=1.0.18=h62dcd97_0
   - libsolv=0.7.30=hf2fb9eb_1
   - libssh2=1.11.1=h2addb87_0
+  - libtiff=4.7.0=h404307b_0
+  - libwebp-base=1.3.2=h3d04722_1
   - libxml2=2.13.8=h866ff63_0
   - libxslt=1.1.41=h0739af5_0
   - lxml=5.3.0=py313h395c83e_1
   - lz4-c=1.9.4=h2bbff1b_1
   - markupsafe=3.0.2=py313h827c3e9_0
+  - matplotlib=3.10.0=py313haa95532_1
+  - matplotlib-base=3.10.0=py313h7aa5d4e_1
   - matplotlib-inline=0.1.6=py313haa95532_0
   - menuinst=2.2.0=py313h5da7b33_1
   - mistune=3.1.2=py313haa95532_0
@@ -104,6 +117,7 @@ dependencies:
   - numexpr=2.10.1=py313h4cd664f_0
   - numpy=2.2.5=py313ha127e54_0
   - numpy-base=2.2.5=py313haaa8b43_0
+  - openjpeg=2.5.2=h9b5d1b5_1
   - openssl=3.0.16=h3f729d1_0
   - overrides=7.4.0=py313haa95532_0
   - packaging=24.2=py313haa95532_0
@@ -112,6 +126,7 @@ dependencies:
   - pandocfilters=1.5.0=pyhd3eb1b0_0
   - parso=0.8.4=py313haa95532_0
   - pcre2=10.42=h0ff8eda_1
+  - pillow=11.1.0=py313hea0d53e_1
   - pip=25.1=pyhc872135_2
   - platformdirs=4.3.7=py313haa95532_0
   - pluggy=1.5.0=py313haa95532_0
@@ -124,6 +139,7 @@ dependencies:
   - pycosat=0.6.6=py313h827c3e9_2
   - pycparser=2.21=pyhd3eb1b0_0
   - pygments=2.19.1=py313haa95532_0
+  - pyparsing=3.2.0=py313haa95532_0
   - pyqt=6.7.1=py313h5da7b33_1
   - pyqt6-sip=13.9.1=py313h827c3e9_1
   - pysocks=1.7.1=py313haa95532_0
