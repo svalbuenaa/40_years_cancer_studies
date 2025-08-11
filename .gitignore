@@ -3,3 +3,5 @@ src/__pycache__/utils.cpython-313.pyc
 .env
 src/aux_fix_country/.ipynb_checkpoints/fixCountryRegexInstitution-checkpoint.ipynb
 src/aux_fix_country/.ipynb_checkpoints/quantifyArticlesMissingCountry-checkpoint.ipynb
+/src/aux_fix_country/.ipynb_checkpoints
+src/aux_fix_country/__pycache__/aux_fix_country_utils.cpython-313.pyc
