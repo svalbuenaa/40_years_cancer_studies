@@ -1,0 +1,10 @@
+CREATE EXTENSION pg_trgm;
+
+CREATE INDEX idx_institution_name_trgm
+ON institution_names
+USING gin (name gin_trgm_ops);
+
+
+(another optimization)
+CREATE INDEX idx_institution_name_exact
+ON institution_names(name);
