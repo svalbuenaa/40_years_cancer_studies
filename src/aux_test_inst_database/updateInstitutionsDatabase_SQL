@@ -1,0 +1,283 @@
+## UPDATE DATABASE TO INCLUDE COLUMN "origin" IN TABLE "institutions"
+ALTER TABLE institutions
+ADD COLUMN source TEXT;
+
+## POPULATE EXISTING ROWS
+UPDATE institutions
+SET source = 'original'
+WHERE source IS NULL;
+
+## ENFORCE CONSTRAINT
+ALTER TABLE institutions
+ADD CONSTRAINT institutions_source_check
+CHECK (source IN ('original', 'manual'));
+
+## SET DEFAULT FOR NEW INSERTS
+ALTER TABLE institutions
+ALTER COLUMN source SET DEFAULT 'manual';
+
+## MAKE COLUMN NOT NULL
+ALTER TABLE institutions
+ALTER COLUMN source SET NOT NULL;
+
+---------------------------------------------------------
+
+## NEW INSTITUTIONS
+
+# New institution: Institute of Molecular Pathology and Immunology of the University of Porto
+
+INSERT INTO institutions (
+    institution_id,
+    status,
+    established_year,
+    types,
+    created_at,
+    last_modified,
+    created_schema_version,
+    modified_schema_version,
+    source
+)
+VALUES (
+    '05ipatim0',
+    'active',
+    1989,
+    ARRAY['education', 'facility'],
+    NOW(),
+    NOW(),
+    '1.0',
+    '1.0',
+    'manual'
+);
+
+
+
+INSERT INTO institution_names (institution_id, name, normalized_name, lang, type) VALUES
+
+-- Primary display (ROR style: native language)
+('05ipatim0',
+ 'Instituto de Patologia e Imunologia Molecular da Universidade do Porto',
+ 'instituto de patologia e imunologia molecular da universidade do porto',
+ 'pt',
+ 'ror_display'),
+
+-- Acronym
+('05ipatim0',
+ 'IPATIMUP',
+ 'ipatimup',
+ 'und',
+ 'acronym'),
+
+-- English official name
+('05ipatim0',
+ 'Institute of Molecular Pathology and Immunology of the University of Porto',
+ 'institute of molecular pathology and immunology of the university of porto',
+ 'en',
+ 'alias'),
+
+-- Label with university prefix (common in your DB)
+('05ipatim0',
+ 'Universidade do Porto IPATIMUP',
+ 'universidade do porto ipatimup',
+ 'pt',
+ 'label'),
+ 
+ -- Label with university prefix (common in your DB)
+('05ipatim0',
+ 'University of Porto IPATIMUP',
+ 'university of porto ipatimup',
+ 'en',
+ 'label');
+ 
+ 
+INSERT INTO institution_locations (
+    institution_id,
+    geonames_id,
+    city_name,
+    country_code,
+    country_name,
+    subdivision_code,
+    subdivision_name,
+    lat,
+    lng,
+    continent_code,
+    continent_name
+)
+VALUES (
+    '05ipatim0',
+    2735943,
+    'Porto',
+    'PT',
+    'Portugal',
+    'PT-13',
+    'Porto',
+    41.1755,
+    -8.6010,
+    'EU',
+    'Europe'
+);
+
+
+INSERT INTO institution_relationships (
+    child_institution_id,
+    parent_institution_id,
+    relationship_type,
+    label
+)
+VALUES (
+    '05ipatim0',
+    '04wjk1035',
+    'child',
+    'Instituto de Patologia e Imunologia Molecular da Universidade do Porto'
+);
+
+
+
+# New institution: Rutgers Institute for Nicotine & Tobacco Studies
+
+INSERT INTO institutions (
+    institution_id, status, established_year, types, created_at, last_modified,
+    created_schema_version, modified_schema_version, source
+)
+VALUES (
+    '05rints01',
+    'active',
+    1999,
+    ARRAY['education','facility'],
+    NOW(),
+    NOW(),
+    '1.0',
+    '1.0',
+    'manual'
+);
+
+
+INSERT INTO institution_names (institution_id, name, normalized_name, lang, type) VALUES
+('05rints01','Rutgers Institute for Nicotine & Tobacco Studies','rutgers institute for nicotine & tobacco studies','en','ror_display'),
+('05rints01','RINTS','rints','und','acronym'),
+('05rints01','Rutgers University Institute for Nicotine & Tobacco Studies','rutgers university institute for nicotine & tobacco studies','en','alias');
+
+
+INSERT INTO institution_locations (
+    institution_id, geonames_id, city_name, country_code, country_name, subdivision_code,
+    subdivision_name, lat, lng, continent_code, continent_name
+)
+VALUES (
+    '05rints01',
+    5101798,  -- New Brunswick, NJ
+    'New Brunswick',
+    'US',
+    'United States',
+    'US-NJ',
+    'New Jersey',
+    40.4862,
+    -74.4518,
+    'NA',
+    'North America'
+);
+
+
+INSERT INTO institution_relationships (
+    child_institution_id,
+    parent_institution_id,
+    relationship_type,
+    label
+)
+VALUES (
+    '05rints01',
+    '05vt9qd57',  -- Rutgers University
+    'child',
+    'Rutgers Institute for Nicotine & Tobacco Studies'
+);
+
+
+# Rempove duplicate: UNIVERSITE DE TOULOUSE
+
+DELETE FROM institution_relationships
+WHERE child_institution_id = '017tgbk05'
+   OR parent_institution_id = '017tgbk05';
+   
+DELETE FROM institution_external_ids
+WHERE institution_id = '017tgbk05';
+
+DELETE FROM institution_domains
+WHERE institution_id = '017tgbk05';
+
+DELETE FROM institution_locations
+WHERE institution_id = '017tgbk05';
+
+DELETE FROM institution_names
+WHERE institution_id = '017tgbk05';
+
+DELETE FROM institutions
+WHERE institution_id = '017tgbk05';
+
+
+# Add new alias: TO LIVERPOOL WOMEN'S HOSPITAL
+
+INSERT INTO institution_names (
+    institution_id,
+    name,
+    normalized_name,
+    lang,
+    type
+)
+VALUES (
+    '00eysw063',
+    'Liverpool Women’s NHS Foundation Trust',
+    'liverpool womens nhs foundation trust',
+    'en',
+    'alias'
+);
+
+
+# New institution: Hewitt Centre for Reproductive Medicine
+
+INSERT INTO institutions (
+    institution_id, status, established_year, types, created_at, last_modified,
+    created_schema_version, modified_schema_version, source
+)
+VALUES (
+    '05hewitt0',
+    'active',
+    1992,
+    ARRAY['facility','healthcare'],
+    NOW(),
+    NOW(),
+    '1.0',
+    '1.0',
+    'manual'
+);
+
+
+INSERT INTO institution_names (institution_id, name, normalized_name, lang, type) VALUES
+('05hewitt0','Hewitt Centre for Reproductive Medicine','hewitt centre for reproductive medicine','en','ror_display');
+
+
+INSERT INTO institution_locations (
+    institution_id, geonames_id, city_name, country_code, country_name, subdivision_code,
+    subdivision_name, lat, lng, continent_code, continent_name
+)
+VALUES (
+    '05hewitt0',
+    2644210,  -- Liverpool, UK
+    'Liverpool',
+    'GB',
+    'United Kingdom',
+    'GB-LIV',
+    'Liverpool',
+    53.4084,
+    -2.9916,
+    'EU',
+    'Europe'
+);
+
+
+INSERT INTO institution_relationships (
+    child_institution_id, parent_institution_id, relationship_type, label
+)
+VALUES (
+    '05hewitt0',
+    '00eysw063',  -- Liverpool Women's Hospital
+    'child',
+    'Hewitt Centre for Reproductive Medicine'
+);
