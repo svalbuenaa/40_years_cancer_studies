@@ -212,7 +212,25 @@ DELETE FROM institutions
 WHERE institution_id = '017tgbk05';
 
 
-# Add new alias: TO LIVERPOOL WOMEN'S HOSPITAL
+# Add new alias to: Royal Brisbane and Women's Hospital
+
+INSERT INTO institution_names (
+    institution_id,
+    name,
+    normalized_name,
+    lang,
+    type
+)
+VALUES (
+    '05p52kj31',
+    'Royal North Brisbane Hospital',
+    'royal north brisbane hospital',
+    'en',
+    'alias'
+);
+
+
+# Add new alias to: LIVERPOOL WOMEN'S HOSPITAL
 
 INSERT INTO institution_names (
     institution_id,
@@ -281,3 +299,25 @@ VALUES (
     'child',
     'Hewitt Centre for Reproductive Medicine'
 );
+
+
+# Remove institution: Heidelberg Universtity of Education
+
+DELETE FROM institution_relationships
+WHERE child_institution_id = '0044w3h23'
+   OR parent_institution_id = '0044w3h23';
+   
+DELETE FROM institution_external_ids
+WHERE institution_id = '0044w3h23';
+
+DELETE FROM institution_domains
+WHERE institution_id = '0044w3h23';
+
+DELETE FROM institution_locations
+WHERE institution_id = '0044w3h23';
+
+DELETE FROM institution_names
+WHERE institution_id = '0044w3h23';
+
+DELETE FROM institutions
+WHERE institution_id = '0044w3h23';
